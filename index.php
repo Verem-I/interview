@@ -7,7 +7,7 @@
   <title>Hello, AMPs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <meta property="og:url" content="https://workwolf.com/" />
@@ -99,87 +99,23 @@
     </style>
   </noscript>
   <style amp-custom>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    font-size: 62.5%;
-  }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-
-  }
-    /* animations */
-    @keyframes moveInLeft {
-      0% {
-        opacity: 0;
-        transform: translateX(-100px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    @keyframes moveInRight {
-      0% {
-        opacity: 0;
-        transform: translateX(150px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
+    html {
+      scroll-behavior: smooth;
+      font-size: 62.5%;
     }
 
-    @keyframes moveInbottom {
-      0% {
-        opacity: 0;
-        transform: translateY(30px)
-      }
+    body {
+      font-family: 'Poppins', sans-serif;
 
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
-
-    @keyframes moveIntop {
-      0% {
-        opacity: 0;
-        transform: translateY(-190px)
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animated-left {
-      animation: moveInLeft 1s ease-in;
-    }
-
-    .animated-right {
-      animation: moveInRight 1s ease-in;
-    }
-
-    .animated-bottom {
-      animation: moveInbottom 1s ease-in;
-    }
-
-    .animated-top {
-      animation: moveIntop 1s ease-in;
-    }
-
-
 
     a:link,
     a:visited {
@@ -191,6 +127,17 @@
 
     ul {
       list-style: none;
+    }
+
+    header {
+      position: relative;
+    }
+
+    .nectar-shape-divider {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+
     }
 
     /* utilities and reuseable components*/
@@ -289,8 +236,8 @@
       display: inline-block;
       text-decoration: none;
       font-size: 1.6rem;
-      font-weight: 600;
-      padding: 1.6rem 3.2rem;
+      font-weight: 500;
+      padding: 1.2rem 3.2rem;
       border-radius: 3px;
       cursor: pointer;
       font-family: inherit;
@@ -366,6 +313,12 @@
     .btn-dark {
       background-color: #221f20;
       color: #fff;
+    }
+
+    .btn-dark:hover {
+      box-shadow: 1px 11px 25px -8px rgba(0, 0, 0, 0.71);
+      -webkit-box-shadow: 1px 11px 25px -8px rgba(0, 0, 0, 0.71);
+      -moz-box-shadow: 1px 11px 25px -8px rgba(0, 0, 0, 0.71);
     }
 
     .dark {
@@ -444,14 +397,46 @@
       font-weight: 400;
       text-transform: capitalize;
       position: relative;
+    }
+
+    .nav-list .list a::after {
+      content: "";
+      position: absolute;
+      background-color: #d0b08b;
+      height: 3px;
+      left: 0;
+      bottom: -10px;
+      transition: 0.3s;
+    }
+
+    .nav-list .list a:hover::after {
+      width: 100%;
+    }
+
+    .cto .list::after {
+      content: "";
+      position: absolute;
+      background-color: #d0b08b;
+      height: 3px;
+      left: 0;
+      bottom: -10px;
+      transition: 0.3s;
+    }
+
+    .cto .list:hover::after {
+      width: 100%;
+    }
+
+    .cto .list {
+      color: #d0b08b;
+      font-size: 1.8rem;
+      font-weight: 400;
+      text-transform: capitalize;
+      position: relative;
       transition: all .2s;
     }
 
-    .hero-desc-text {
-      background-color: #d0b08b;
-      padding: 2.4rem 0;
-      font-size: 1.8rem;
-    }
+
 
     nav {
       background-color: #221f20;
@@ -483,10 +468,15 @@
     .hero {
       padding: 12.8rem 2.4rem;
       background: #221f20;
-      z-index: 33333333;
+
     }
 
 
+    .hero-desc-text {
+      background-color: #d0b08b;
+      font-size: 1.8rem;
+      padding: 12.8rem 0 2.4rem 0;
+    }
 
     .digital {
       padding: 9.6rem 0;
@@ -608,6 +598,7 @@
       color: #fff;
       font-weight: 300;
     }
+
     /* media queries */
     @media (min-width: 576px) {
       .container {
@@ -725,7 +716,7 @@
       }
     }
 
-    @media (max-width:75em) {
+    @media (max-width:790px) {
       html {
         font-size: 56.25%;
       }
@@ -738,6 +729,13 @@
         width: 7.4rem;
       }
 
+      .btn,
+      .btn:link,
+      .btn:visited {
+        display: block;
+        width: 90%;
+        margin: 2.4rem auto 1.6rem auto;
+      }
     }
 
 
@@ -761,14 +759,17 @@
         line-height: 1.2;
       }
     }
+
     @media (max-width: 375px) {
       .btn {
         margin-bottom: 2.4rem;
       }
+
       div.img-loaded {
         width: 3.6rem;
       }
     }
+
     @media (min-width: 1200px) {
       .container {
         max-width: 1140px;
@@ -779,6 +780,71 @@
       .container {
         max-width: 1320px;
       }
+    }
+
+    /* animations */
+    @keyframes moveInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes moveInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(150px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes moveInbottom {
+      0% {
+        opacity: 0;
+        transform: translateY(30px)
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes moveIntop {
+      0% {
+        opacity: 0;
+        transform: translateY(-190px)
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animated-left {
+      animation: moveInLeft 1s ease-in;
+    }
+
+    .animated-right {
+      animation: moveInRight 1s ease-in;
+    }
+
+    .animated-bottom {
+      animation: moveInbottom 1s ease-in;
+    }
+
+    .animated-top {
+      animation: moveIntop 1s ease-in;
     }
   </style>
 </head>
@@ -795,7 +861,7 @@
           </div>
           <div class="nav-items">
             <ul class="nav-list d-flex gap-1">
-              <li class="list"><a href="#">company</a></li>
+              <li class="list"><i class="fas fa-angle-down"></i><a href="#">company</a></li>
               <li class="list"><a href="#">solution</a></li>
               <li class="list"><a href="#">pricing</a></li>
               <li class="list"><a href="#">partners</a></li>
@@ -803,8 +869,8 @@
             </ul>
           </div>
           <div class="cto">
-            <a href="#" class="btn btn-primary mr-1">Get access</a>
-            <a href="#" class="btn btn-secondary">Request a demo</a>
+            <a href="#" class="btn btn-primary mr-1" style="color:#221f20;">Get access</a>
+            <a href="#" class="list">login</a>
           </div>
         </div>
       </div>
@@ -816,19 +882,19 @@
           <div class="desc__text">Winner of the Manpower Group HR Challenge for “Automating recruitment” at Vivatechnology 2021</div>
 
 
-          <p style="text-align: right; "><a class="dark-link" href="https://on.workwolf.com/vivatech" target="_blank" rel="noopener">About the award</a></p>
+          <p style="text-align: right; "><a class="dark-link" href="https://on.workwolf.com/vivatech" target="_blank" rel="noopener" style="color:#221f20;">About the award</a></p>
 
         </div>
       </div>
     </div>
     <section class="hero">
       <div class="container">
-        <div class="row gap-1">
-          <div class="col-lg-6 col-md-12 animated-left">
+        <div class="row gap-1 mb-3">
+          <div class="col-lg-6 col-md-12 animated-left ">
             <h1 class="heading-primary light mb-3">Hire fast, hire once</h1>
             <p class="text-primary light mb-3">Blockchain enabled, real-time verification of resume credentials makes wasted time and mis-hires a thing of the past. Never wait for a background check again.</p>
             <div class="hero-buttons">
-              <a href="#" class="btn btn-primary mr-1">Get access</a>
+              <a href="#" class="btn btn-primary mr-1" style="color:#221f20;">Get access</a>
               <a href="#" class="btn btn-secondary">Request a demo</a>
             </div>
           </div>
@@ -838,7 +904,9 @@
         </div>
       </div>
     </section>
-
+    <svg class="nectar-shape-divider" aria-hidden="true" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path>
+    </svg>
   </header>
   <section class="digital">
     <div class="container">
@@ -980,7 +1048,7 @@
           <h1 class="heading-primary light mb-3">Reduce your time to hire</h1>
           <p class="text-primary light mb-3">We’ve developed a network that connects both professionals and employers to hundreds of thousands of credential issuers, making it easy to verify resume content in real time.</p>
           <div class="hero-buttons">
-            <a href="#" class="btn btn-primary mr-1">Watch Now</a>
+            <a href="#" class="btn btn-primary mr-1" style="color:#221f20;">Watch Now</a>
           </div>
         </div>
         <div class="col-lg-5 col-md-12 ">
@@ -1157,7 +1225,7 @@
       </div>
       <div class="cto2 text-center">
         <a href="https://keyc.adm.workwolf.com/auth/realms/workwolf/protocol/openid-connect/registrations?client_id=workwolf-frontend&amp;response_type=code&amp;scope=openid%20email&amp;redirect_uri=https://app.front.workwolf.com/login&amp;kc_locale=en"
-          class="btn btn-primary mr-1">Get access</a>
+          class="btn btn-primary mr-1" style="color:#221f20;">Get access</a>
         <a href="https://meetings.hubspot.com/stephen510/book-a-demo?__hstc=266315472.ca6286e1b703964242368847b5f9f2d5.1638285724292.1638802739989.1638969506783.12&amp;__hssc=266315472.4.1638969506783&amp;__hsfp=4177530735"
           class="btn btn-secondary">Request a demo</a>
       </div>
@@ -1282,7 +1350,6 @@
       </div>
     </div>
   </footer>
-
 
 </body>
 
